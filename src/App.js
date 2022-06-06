@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import Login from './page/Login';
+import Register from './page/Register';
+import Main from './page/Main';
+import Project from './page/Project';
+import Modal from './component/Modal'
+import { BrowserRouter as Router, Route, withRouter } from "react-router-dom";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  render() {
+    return(
+    <Router>
+        <Route path="/" exact={true} component={withRouter(Login)}></Route>
+        <Route path="/signup" component={withRouter(Register)}></Route>
+        <Route path="/main" component={withRouter(Main)}></Route>
+        <Route path="/project" component={withRouter(Project)}></Route>
+        <Route path="/modaltmp" component={withRouter(Modal)}></Route>
+    </Router>
+    )
+  }
 }
 
 export default App;
