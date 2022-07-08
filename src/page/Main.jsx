@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import '../styles/Main.css';
-import GlobalStyles from '../styles/GlobalStyle';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import { Link } from 'react-router-dom';
@@ -29,7 +28,6 @@ function Main() {
 
     return (
         <div>
-            <GlobalStyles></GlobalStyles>
             <div className='left'>
                 <img src='assets/imgs/dog.jpg' style={{
                 width: 80,
