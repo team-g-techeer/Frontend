@@ -64,8 +64,11 @@ function Main() {
                     </div>
                     <div className='projectList'>
                         Project
-                        <p className='addProject'><Link onClick={function () { setIsOpen(true); console.log(isOpen); }}>+프로젝트 추가하기</Link></p>
-                        <AddModal openModal={isOpen}></AddModal>
+                        <p className='addProject'><Link onClick={function () {setIsOpen(true)}}>+프로젝트 추가하기</Link></p>
+                        {isOpen === true ?
+                        <AddModal></AddModal>
+                        : null
+                        }
                         <ProjectDiv><Link className='proTitle' to="/project">웹 개발 프로젝트</Link></ProjectDiv>
                         <ProjectDiv><Link className='proTitle' to="/project">산책 동아리</Link></ProjectDiv>
                     </div>
