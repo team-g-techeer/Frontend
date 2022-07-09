@@ -6,9 +6,10 @@ function AddProjectModal() {
         <ModalBackground>
             <div style={{
                 backgroundColor: 'white',
-                width: '30%',
-                height: '40%',
-                padding: '1%',
+                paddingTop: '2%',
+                paddingBottom: '2%',
+                paddingLeft: '3%',
+                paddingRight: '3%',
                 display: 'inline-block',
                 marginTop: '10%'
             }}>
