@@ -1,10 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
 
-function Modal(props) {
+function AddProjectModal() {
     return (
-        <div>
-            <h3>Create your project</h3>
+        <ModalBackground>
+            <div style={{
+                backgroundColor: 'white',
+                width: '30%',
+                height: '40%',
+                padding: '1%',
+                display: 'inline-block',
+                marginTop: '10%'
+            }}>
+                <h3>Create your project ✌️</h3>
             <form>
                 <table>
                     <tr>
@@ -22,7 +30,8 @@ function Modal(props) {
                 </table>
                 <CreateButton>create</CreateButton>
             </form>
-        </div>
+            </div>
+        </ModalBackground>
     );
 }
 
@@ -33,6 +42,22 @@ const TextInput = styled.input`
 
 const CreateButton = styled.button`
     font-family: 'GmarketSansMedium';
+    width: 400px;
+    height: 40px;
+    background-color: #E6F7FF;
+    margin-top: 10px;
+    border-width: 0px;
 `
 
-export default Modal;
+const ModalBackground = styled.div`
+    position: fixed;
+    background-color: rgba(0,0,0,0.50);
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 0;
+    text-align: center;
+`
+
+export default AddProjectModal;
