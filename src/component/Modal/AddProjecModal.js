@@ -3,28 +3,32 @@ import styled from 'styled-components';
 
 function AddProjectModal({ closeModalFunction }) {
     const [closeModal, setCloseModal] = useState(true);
-    const [members, setMembers] = useState("");
+    //const [members, setMembers] = useState("");
     const [result, setResult] = useState("");
 
-    var arr = ["test1@email.com", "test2@email.net"];
-    var isThere = false;
+    var arr = ["test1@email.com ", "test2@email.net "
+        , "heejin@gmail.com ", "tech@naver.com "
+    ];
 
     const inputMembers = (e) => {
-        setMembers(e.target.value);
-        console.log(e.target.value);
+        //setMembers(e.target.value);
+        //console.log(e.target.value);
+        let member = e.target.value;  //input data 저장하기
+        let filterData = arr.filter((i) => 
+            i.toLowerCase().includes(member.toLowerCase())
+        );   //배열 데이터에 필터를 돌려 데이터를 소문자로 변환
+        //입력값이 저장된 변수를 소문자로 변환시켜 같은 문자열이 포함되면 필터 데이터에 저장
+
+        if(member.length === 0) {
+            filterData = [];
+        }
+
+        setResult(filterData);
+        console.log(filterData);
     }
 
     const onSearch = () => {
-        for(var i=0; i<arr.length; i++) {
-            if(arr[i].includes(members)) {
-                setResult("invite " + arr[i] + " users");
-                isThere = true;
-            }
-        }
-
-        if(isThere === false) {
-            setResult("no users");
-        }
+        var r = result.toLowerCase();
     }
 
     closeModalFunction(closeModal);
@@ -56,10 +60,11 @@ function AddProjectModal({ closeModalFunction }) {
                     </tr>
                     <tr>
                         <td><b>Member</b></td>
-                        <td><TextInput type="text" name='members' onChange={inputMembers} placeholder='Enter a member email'></TextInput></td>
+                        <td><TextInput type="text" name='members' onChange={inputMembers} placeholder='hello@test.com'></TextInput>
+                            {result}
+                        </td>
                         <td><button type='button' onClick={onSearch}>search</button></td>
                     </tr>
-                    <p>{result}</p>
                     <tr>
                         <td><b>description</b></td>
                         <td><TextInput type="text" name='description'></TextInput></td>
@@ -94,6 +99,10 @@ const ModalBackground = styled.div`
     bottom: 0;
     right: 0;
     z-index: 0;
+`
+
+const DropDownContainer = styled.div`
+    
 `
 
 export default AddProjectModal;
