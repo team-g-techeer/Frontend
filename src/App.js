@@ -3,7 +3,8 @@ import Login from './page/Login';
 import Register from './page/Register';
 import Main from './page/Main';
 import Project from './page/Project';
-import Modal from './component/Modal'
+import AddModal from './component/Modal/AddProjecModal';
+import Members from './component/ListView/SearchList'
 import { BrowserRouter as Router, Route, withRouter } from "react-router-dom";
 
 class App extends Component {
@@ -14,7 +15,9 @@ class App extends Component {
         <Route path="/signup" component={withRouter(Register)}></Route>
         <Route path="/main" component={withRouter(Main)}></Route>
         <Route path="/project" component={withRouter(Project)}></Route>
-        <Route path="/modaltmp" component={withRouter(Modal)}></Route>
+        <Route path="/modal" component={withRouter(AddModal)}></Route>
+        <Route path="/list" component={withRouter(Members)}></Route>
+        
     </Router>
     )
   }
