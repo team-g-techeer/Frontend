@@ -4,7 +4,7 @@ import styled from 'styled-components';
 function AddProjectModal({ closeModalFunction }) {
     const [closeModal, setCloseModal] = useState(true);
     const [result, setResult] = useState(""); //검색결과
-    const [isValue, setIsValue] = useState(false);   //입력값이 존재하는가?
+    const [isOpen, setIsOpen] = useState(false);   //입력값이 존재하는가?
     const [dropDownVal, setDropDownVal] = useState([]);   //자동 완성 리스트(초기값을 배열로 해야 map 사용 가능)
     const [inputVal, setInputVal] = useState("");
     var arr = ["test1@email.com", "test2@email.net"
@@ -20,15 +20,15 @@ function AddProjectModal({ closeModalFunction }) {
         //입력값이 저장된 변수를 소문자로 변환시켜 같은 문자열이 포함되면 필터 데이터에 저장
 
         if(e.target.value === "") {
-            setIsValue(false);    //변경이 한 박자 늦음
+            setIsOpen(false);    //변경이 한 박자 늦음
             filterData = [];
         } else {
-            setIsValue(true);
+            setIsOpen(true);
         }
 
         setDropDownVal(filterData);
         console.log(filterData);
-        console.log(isValue);
+        console.log(isOpen);
     }
 
     const onSearch = () => {
@@ -66,7 +66,7 @@ function AddProjectModal({ closeModalFunction }) {
                     <tr>
                         <td><b>Member</b></td>
                         <td><TextInput type="text" name='members' value={inputVal} onChange={inputMembers} placeholder="Enter the user email"></TextInput>
-                        {isValue === true ? 
+                        {isOpen === true ? 
                             <DropDownContainer>
                                 {dropDownVal.length === 0 ? 
                                     <p style={{
@@ -78,7 +78,7 @@ function AddProjectModal({ closeModalFunction }) {
                                 }}
                                     onClick={() => {
                                         setResult(user);
-                                        setIsValue(false);
+                                        setIsOpen(false);
                                         setInputVal(user);
                                     }}>{user}</p>
                                 )
