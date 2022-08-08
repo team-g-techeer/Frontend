@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from "styled-components";
 import '../styles/Register.css';
 import axios from 'axios';
-
+import { useHistory } from "react-router-dom";
 function Register() {
     const [email, setEmail] = useState('');
     const [pw, setPw] = useState('');
@@ -10,6 +10,8 @@ function Register() {
     const [name, setName] = useState('');
     const [birth, setBirth] = useState('');
     const [profile, setProfile] = useState('assets/imgs/basic.png');
+    let history = useHistory();
+    
 
     const onSubmit = (e) => {
         e.preventDefault();   //이거 없으면 값 초기화돼버림
@@ -41,7 +43,7 @@ function Register() {
             }
         ).then(function (response) {
             console.log(response);
-            alert(response.data);
+            history.push('/main');
         }).catch(function (error) {
             console.log(error);
             alert("fail");
