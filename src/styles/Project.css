@@ -22,9 +22,10 @@ span.add {
 }
 
 span.titleText {
-    font-size: 23px;
+    font-size: 20px;
+    margin-left: 10px;
 }
 
 span.sideText {
-    margin-top: 20x;
+    margin-top: 200px;
 }

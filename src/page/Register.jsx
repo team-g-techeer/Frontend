@@ -3,6 +3,7 @@ import styled from "styled-components";
 import '../styles/Register.css';
 import axios from 'axios';
 import { useHistory } from "react-router-dom";
+
 function Register() {
     const [email, setEmail] = useState('');
     const [pw, setPw] = useState('');
@@ -43,7 +44,9 @@ function Register() {
             }
         ).then(function (response) {
             console.log(response);
-            history.push('/main');
+            //alert(response.data);
+            //history.push('/main');
+            history.push('/');
         }).catch(function (error) {
             console.log(error);
             alert("fail");

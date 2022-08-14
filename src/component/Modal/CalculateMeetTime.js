@@ -7,6 +7,8 @@ import '../../styles/Slider.css';
 function AddProjectModal({ closeModalFunction }) {
     const [closeModal, setCloseModal] = useState(true);
     const [num, setNum] = useState([2, 5]);
+    const [num2, setNum2] = useState([3, 5]);
+    const [meetDate, setMeetDate] = useState(new Date());
     const marks = {
         0: '0',
         1: '1',
@@ -40,6 +42,16 @@ function AddProjectModal({ closeModalFunction }) {
         console.log(num);
     }
 
+    const changeNum2 = (e) => {
+        setNum2(e);
+        console.log(num2);
+    }
+
+    const onChangeDate = (e) => {
+        setMeetDate(e.target.value);
+        console.log(meetDate);
+    }
+
     closeModalFunction(closeModal);
 
     return (
@@ -69,15 +81,16 @@ function AddProjectModal({ closeModalFunction }) {
                         verticalAlign: 'center',
                 }}></img>
                 <figcaption>Marie</figcaption>
+                <input type='date' style={{width: '150px'}} onChange={onChangeDate} value={meetDate}></input>
                     <Slider
                         range={num}
                         min={0}
                         max={23}
-                        allowCross={true}
+//                        allowCross={true}
                         value={num}
                         onChange={val=>changeNum(val)}
                         marks={marks}
-                        pushable={true}
+ //                       pushable={true}
  //                     count={10}  -> 범위를 10개정도 셈
                     >
                     </Slider>
@@ -91,15 +104,16 @@ function AddProjectModal({ closeModalFunction }) {
                         verticalAlign: 'center',
                 }} ></img>
                 <figcaption>Merry</figcaption>
+                <input type='date' style={{width: '150px'}}></input>
                     <Slider
-                        range={num}
+                        range={num2}
                         min={0}
                         max={23}
-                        allowCross={true}
-                        value={num}
-                        onChange={val=>changeNum(val)}
+//                        allowCross={true}
+                        value={num2}
+                        onChange={val2=>changeNum2(val2)}
                         marks={marks}
-                        pushable={true}
+//                        pushable={true}
                     >
                     </Slider>
                 </p>

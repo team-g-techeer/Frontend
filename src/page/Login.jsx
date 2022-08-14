@@ -2,15 +2,17 @@ import React, {useState} from 'react';
 import styled from "styled-components";
 import '../styles/Login.css';
 import { Link } from "react-router-dom";
-import { useHistory } from "react-router-dom";
 import axios from 'axios';
 import GlobalStyles from '../styles/GlobalStyle';
+import { useHistory } from "react-router-dom";
 
 function Login() {
     //react hook
     const [id, setId] = useState('');
     const [pw, setPw] = useState('');
+
     let history = useHistory();
+
     const onSubmit = (e) => {
         e.preventDefault();
 
@@ -34,6 +36,7 @@ function Login() {
         ).then(function (response) {
             console.log(response);
             history.push('/main');
+            //alert(response.data);
         }).catch(function (error) {
             console.log(error);
             alert("fail");

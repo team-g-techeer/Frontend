@@ -20,6 +20,12 @@ const ProjectDiv = styled.div`
 
 function Main() {
     const [value, onChangeDate] = useState(new Date());    //초기값은 현재의 날짜
+    const [isCheck, setChecked] = useState(true);
+
+    const onChangeHandle = () => {
+        setChecked(!isCheck);
+        console.log(isCheck);
+    }
 
     const marks = [
         "18-07-2022",
@@ -65,6 +71,11 @@ function Main() {
                 <div className="subRight">
                     <div className='todo'>
                         To Do List
+                        <input type='checkbox' style={{textAlign: 'left'}}
+                        checked={isCheck}
+                        onChange={onChangeHandle}
+                        value='옆으로 갔으면 좋겠당'
+                        ></input>
                     </div>
                     <div className='projectList'>
                         Project
@@ -73,8 +84,8 @@ function Main() {
                         <AddModal closeModalFunction={closeModalFunction}></AddModal>
                         : null
                         }
-                        <ProjectDiv><Link className='proTitle' to="/project">웹 개발 프로젝트</Link></ProjectDiv>
-                        <ProjectDiv><Link className='proTitle' to="/project">산책 동아리</Link></ProjectDiv>
+                        <ProjectDiv><Link className='proTitle' to="/project">😊 웹 개발 프로젝트</Link></ProjectDiv>
+                        <ProjectDiv><Link className='proTitle' to="/project">🐇 산책 동아리</Link></ProjectDiv>
                     </div>
                 </div>
             </div>
